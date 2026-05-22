@@ -804,3 +804,361 @@ models:
       num_attention_heads: 96
       num_key_value_heads: 8
       head_dim: 192
+  # ── Llama 2 (Standard MHA/GQA) ─────────────────────────────────────
+  - id: llama-2-7b
+    label: "Llama 2 7B"
+    family: "Llama"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 4096
+    source_url: "https://huggingface.co/meta-llama/Llama-2-7b-chat-hf/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 32
+      num_attention_heads: 32
+      num_key_value_heads: 32
+      head_dim: 128
+  - id: llama-2-13b
+    label: "Llama 2 13B"
+    family: "Llama"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 4096
+    source_url: "https://huggingface.co/meta-llama/Llama-2-13b-chat-hf/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 40
+      num_attention_heads: 40
+      num_key_value_heads: 40
+      head_dim: 128
+  - id: llama-2-70b
+    label: "Llama 2 70B"
+    family: "Llama"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 4096
+    source_url: "https://huggingface.co/meta-llama/Llama-2-70b-chat-hf/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 80
+      num_attention_heads: 64
+      num_key_value_heads: 8
+      head_dim: 128
+  # ── Llama 3 (Standard GQA) ─────────────────────────────────────────
+  - id: llama-3-8b
+    label: "Llama 3 8B"
+    family: "Llama"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 8192
+    source_url: "https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 32
+      num_attention_heads: 32
+      num_key_value_heads: 8
+      head_dim: 128
+  - id: llama-3-70b
+    label: "Llama 3 70B"
+    family: "Llama"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 8192
+    source_url: "https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 80
+      num_attention_heads: 64
+      num_key_value_heads: 8
+      head_dim: 128
+  # ── Llama 3.2 (Standard GQA) ───────────────────────────────────────
+  - id: llama-3.2-1b
+    label: "Llama 3.2 1B"
+    family: "Llama"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 131072
+    source_url: "https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 16
+      num_attention_heads: 32
+      num_key_value_heads: 8
+      head_dim: 64
+  - id: llama-3.2-3b
+    label: "Llama 3.2 3B"
+    family: "Llama"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 131072
+    source_url: "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 28
+      num_attention_heads: 24
+      num_key_value_heads: 8
+      head_dim: 128
+  # ── CodeLlama (Standard MHA/GQA) ───────────────────────────────────
+  - id: codellama-7b
+    label: "CodeLlama 7B"
+    family: "CodeLlama"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 16384
+    source_url: "https://huggingface.co/codellama/CodeLlama-7b-Instruct-hf/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 32
+      num_attention_heads: 32
+      num_key_value_heads: 32
+      head_dim: 128
+  - id: codellama-13b
+    label: "CodeLlama 13B"
+    family: "CodeLlama"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 16384
+    source_url: "https://huggingface.co/codellama/CodeLlama-13b-Instruct-hf/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 40
+      num_attention_heads: 40
+      num_key_value_heads: 40
+      head_dim: 128
+  - id: codellama-34b
+    label: "CodeLlama 34B"
+    family: "CodeLlama"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 16384
+    source_url: "https://huggingface.co/codellama/CodeLlama-34b-Instruct-hf/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 48
+      num_attention_heads: 64
+      num_key_value_heads: 8
+      head_dim: 128
+  # ── Mistral 7B (Standard GQA) ──────────────────────────────────────
+  - id: mistral-7b-v0.3
+    label: "Mistral 7B v0.3"
+    family: "Mistral"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 32768
+    source_url: "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 32
+      num_attention_heads: 32
+      num_key_value_heads: 8
+      head_dim: 128
+  # ── Mistral Nemo (Standard GQA) ────────────────────────────────────
+  - id: mistral-nemo-12b
+    label: "Mistral Nemo 12B"
+    family: "Mistral"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 131072
+    source_url: "https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 40
+      num_attention_heads: 32
+      num_key_value_heads: 8
+      head_dim: 128
+  # ── DeepSeek V2 / V2.5 / V2-Lite (MLA) ────────────────────────────
+  - id: deepseek-v2
+    label: "DeepSeek V2"
+    family: "DeepSeek"
+    formula: "mla"
+    default_tokens: 1024
+    max_position_embeddings: 163840
+    source_url: "https://huggingface.co/deepseek-ai/DeepSeek-V2/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 60
+      kv_lora_rank: 512
+      qk_rope_head_dim: 64
+      qk_nope_head_dim: 128
+      v_head_dim: 128
+      num_key_value_heads: 128
+  - id: deepseek-v2.5
+    label: "DeepSeek V2.5"
+    family: "DeepSeek"
+    formula: "mla"
+    default_tokens: 1024
+    max_position_embeddings: 163840
+    source_url: "https://huggingface.co/deepseek-ai/DeepSeek-V2.5/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 60
+      kv_lora_rank: 512
+      qk_rope_head_dim: 64
+      qk_nope_head_dim: 128
+      v_head_dim: 128
+      num_key_value_heads: 128
+  - id: deepseek-v2-lite
+    label: "DeepSeek V2-Lite"
+    family: "DeepSeek"
+    formula: "mla"
+    default_tokens: 1024
+    max_position_embeddings: 163840
+    source_url: "https://huggingface.co/deepseek-ai/DeepSeek-V2-Lite/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 27
+      kv_lora_rank: 512
+      qk_rope_head_dim: 64
+      qk_nope_head_dim: 128
+      v_head_dim: 128
+      num_key_value_heads: 16
+  # ── StarCoder2 (Standard GQA) ──────────────────────────────────────
+  - id: starcoder2-3b
+    label: "StarCoder2-3B"
+    family: "StarCoder"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 16384
+    source_url: "https://huggingface.co/bigcode/starcoder2-3b/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 30
+      num_attention_heads: 24
+      num_key_value_heads: 2
+      head_dim: 128
+  - id: starcoder2-7b
+    label: "StarCoder2-7B"
+    family: "StarCoder"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 16384
+    source_url: "https://huggingface.co/bigcode/starcoder2-7b/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 32
+      num_attention_heads: 36
+      num_key_value_heads: 4
+      head_dim: 128
+  - id: starcoder2-15b
+    label: "StarCoder2-15B"
+    family: "StarCoder"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 16384
+    source_url: "https://huggingface.co/bigcode/starcoder2-15b/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 40
+      num_attention_heads: 48
+      num_key_value_heads: 4
+      head_dim: 128
+  # ── Qwen2.5 Small Models (Standard GQA) ────────────────────────────
+  - id: qwen2.5-3b
+    label: "Qwen2.5-3B"
+    family: "Qwen2.5"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 32768
+    source_url: "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 36
+      num_attention_heads: 16
+      num_key_value_heads: 2
+      head_dim: 128
+  - id: qwen2.5-1.5b
+    label: "Qwen2.5-1.5B"
+    family: "Qwen2.5"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 32768
+    source_url: "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 28
+      num_attention_heads: 12
+      num_key_value_heads: 2
+      head_dim: 128
+  - id: qwen2.5-0.5b
+    label: "Qwen2.5-0.5B"
+    family: "Qwen2.5"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 32768
+    source_url: "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 24
+      num_attention_heads: 14
+      num_key_value_heads: 2
+      head_dim: 64
+  # ── Gemma 2 2B (Standard GQA) ──────────────────────────────────────
+  - id: gemma-2-2b
+    label: "Gemma 2 2B"
+    family: "Gemma"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 8192
+    source_url: "https://huggingface.co/google/gemma-2-2b-it/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 26
+      num_attention_heads: 8
+      num_key_value_heads: 4
+      head_dim: 256
+  # ── Baichuan2 (Standard MHA) ───────────────────────────────────────
+  - id: baichuan2-7b
+    label: "Baichuan2-7B"
+    family: "Baichuan"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 4096
+    source_url: "https://huggingface.co/baichuan-inc/Baichuan2-7B-Chat/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 32
+      num_attention_heads: 32
+      num_key_value_heads: 32
+      head_dim: 128
+  - id: baichuan2-13b
+    label: "Baichuan2-13B"
+    family: "Baichuan"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 4096
+    source_url: "https://huggingface.co/baichuan-inc/Baichuan2-13B-Chat/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 40
+      num_attention_heads: 40
+      num_key_value_heads: 40
+      head_dim: 128
+  # ── Jamba (Hybrid SSM+Attention, only attention layers produce KV) ─
+  - id: jamba-v0.1
+    label: "Jamba v0.1 (52B MoE)"
+    family: "Jamba"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 262144
+    source_url: "https://huggingface.co/ai21labs/AI21-Jamba-1.5-Mini/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    notes: "Hybrid SSM+Attention. Only 4 of 32 layers use attention (attn_layer_period=8). num_hidden_layers set to attention layer count for KV cache calculation."
+    fields:
+      num_hidden_layers: 4
+      num_attention_heads: 32
+      num_key_value_heads: 8
+      head_dim: 128
+  # ── Phi-4-mini (Standard GQA) ──────────────────────────────────────
+  - id: phi-4-mini
+    label: "Phi-4-mini 3.8B"
+    family: "Phi"
+    formula: "standard_gqa"
+    default_tokens: 1024
+    max_position_embeddings: 131072
+    source_url: "https://huggingface.co/microsoft/Phi-4-mini-instruct/raw/main/config.json"
+    source_retrieved_at: "2026-05-22"
+    fields:
+      num_hidden_layers: 32
+      num_attention_heads: 24
+      num_key_value_heads: 8
+      head_dim: 128

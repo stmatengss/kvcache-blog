@@ -242,11 +242,130 @@ Source: `https://huggingface.co/tiiuae/falcon-*/raw/main/config.json`
 
 Source: `https://huggingface.co/nvidia/Nemotron-4-340B-Base/raw/main/config.json`
 
+### Llama 2 (Standard MHA/GQA)
+
+| Model | Layers | Attn Heads | KV Heads | head_dim | Max Ctx |
+|-------|--------|-----------|----------|----------|---------|
+| Llama 2 7B | 32 | 32 | 32 | 128 | 4096 |
+| Llama 2 13B | 40 | 40 | 40 | 128 | 4096 |
+| Llama 2 70B | 80 | 64 | 8 | 128 | 4096 |
+
+Note: Llama 2 7B/13B use Multi-Head Attention (MHA, kv_heads = attn_heads). Llama 2 70B uses Grouped Query Attention (GQA).
+
+Source: `https://huggingface.co/meta-llama/Llama-2-*-chat-hf/raw/main/config.json`
+
+### Llama 3 (Standard GQA)
+
+| Model | Layers | Attn Heads | KV Heads | head_dim | Max Ctx |
+|-------|--------|-----------|----------|----------|---------|
+| Llama 3 8B | 32 | 32 | 8 | 128 | 8192 |
+| Llama 3 70B | 80 | 64 | 8 | 128 | 8192 |
+
+Source: `https://huggingface.co/meta-llama/Meta-Llama-3-*-Instruct/raw/main/config.json`
+
+### Llama 3.2 (Standard GQA)
+
+| Model | Layers | Attn Heads | KV Heads | head_dim | Max Ctx |
+|-------|--------|-----------|----------|----------|---------|
+| Llama 3.2 1B | 16 | 32 | 8 | 64 | 131072 |
+| Llama 3.2 3B | 28 | 24 | 8 | 128 | 131072 |
+
+Source: `https://huggingface.co/meta-llama/Llama-3.2-*-Instruct/raw/main/config.json`
+
+### CodeLlama (Standard MHA/GQA)
+
+| Model | Layers | Attn Heads | KV Heads | head_dim | Max Ctx |
+|-------|--------|-----------|----------|----------|---------|
+| CodeLlama 7B | 32 | 32 | 32 | 128 | 16384 |
+| CodeLlama 13B | 40 | 40 | 40 | 128 | 16384 |
+| CodeLlama 34B | 48 | 64 | 8 | 128 | 16384 |
+
+Note: CodeLlama 7B/13B use MHA. CodeLlama 34B uses GQA.
+
+Source: `https://huggingface.co/codellama/CodeLlama-*-Instruct-hf/raw/main/config.json`
+
+### Mistral 7B / Nemo (Standard GQA)
+
+| Model | Layers | Attn Heads | KV Heads | head_dim | Max Ctx |
+|-------|--------|-----------|----------|----------|---------|
+| Mistral 7B v0.3 | 32 | 32 | 8 | 128 | 32768 |
+| Mistral Nemo 12B | 40 | 32 | 8 | 128 | 131072 |
+
+Source: `https://huggingface.co/mistralai/Mistral-*/raw/main/config.json`
+
+### DeepSeek V2 / V2.5 / V2-Lite (MLA)
+
+| Model | Layers | kv_lora_rank | qk_rope_head_dim | qk_nope_head_dim | v_head_dim | KV Heads | Max Ctx |
+|-------|--------|-------------|------------------|------------------|-----------|----------|---------|
+| DeepSeek V2 | 60 | 512 | 64 | 128 | 128 | 128 | 163840 |
+| DeepSeek V2.5 | 60 | 512 | 64 | 128 | 128 | 128 | 163840 |
+| DeepSeek V2-Lite | 27 | 512 | 64 | 128 | 128 | 16 | 163840 |
+
+Source: `https://huggingface.co/deepseek-ai/DeepSeek-V2*/raw/main/config.json`
+
+### StarCoder2 (Standard GQA)
+
+| Model | Layers | Attn Heads | KV Heads | head_dim | Max Ctx |
+|-------|--------|-----------|----------|----------|---------|
+| StarCoder2-3B | 30 | 24 | 2 | 128 | 16384 |
+| StarCoder2-7B | 32 | 36 | 4 | 128 | 16384 |
+| StarCoder2-15B | 40 | 48 | 4 | 128 | 16384 |
+
+Source: `https://huggingface.co/bigcode/starcoder2-*/raw/main/config.json`
+
+### Qwen2.5 Small Models (Standard GQA)
+
+| Model | Layers | Attn Heads | KV Heads | head_dim | Max Ctx |
+|-------|--------|-----------|----------|----------|---------|
+| Qwen2.5-3B | 36 | 16 | 2 | 128 | 32768 |
+| Qwen2.5-1.5B | 28 | 12 | 2 | 128 | 32768 |
+| Qwen2.5-0.5B | 24 | 14 | 2 | 64 | 32768 |
+
+Source: `https://huggingface.co/Qwen/Qwen2.5-*-Instruct/raw/main/config.json`
+
+### Gemma 2 2B (Standard GQA)
+
+| Model | Layers | Attn Heads | KV Heads | head_dim | Max Ctx |
+|-------|--------|-----------|----------|----------|---------|
+| Gemma 2 2B | 26 | 8 | 4 | 256 | 8192 |
+
+Source: `https://huggingface.co/google/gemma-2-2b-it/raw/main/config.json`
+
+### Baichuan2 (Standard MHA)
+
+| Model | Layers | Attn Heads | KV Heads | head_dim | Max Ctx |
+|-------|--------|-----------|----------|----------|---------|
+| Baichuan2-7B | 32 | 32 | 32 | 128 | 4096 |
+| Baichuan2-13B | 40 | 40 | 40 | 128 | 4096 |
+
+Note: Baichuan2 uses Multi-Head Attention (MHA, kv_heads = attn_heads).
+
+Source: `https://huggingface.co/baichuan-inc/Baichuan2-*-Chat/raw/main/config.json`
+
+### Jamba (Hybrid SSM+Attention)
+
+| Model | Attn Layers | Attn Heads | KV Heads | head_dim | Max Ctx | Notes |
+|-------|-------------|-----------|----------|----------|---------|-------|
+| Jamba v0.1 (52B MoE) | 4 | 32 | 8 | 128 | 262144 | 32 total layers, attn_layer_period=8, 16 MoE experts |
+
+Note: Jamba is a hybrid SSM+Attention model. Only attention layers produce KV cache. The `num_hidden_layers` field is set to the attention layer count (4 out of 32 total) for correct KV cache calculation.
+
+Source: `https://huggingface.co/ai21labs/AI21-Jamba-1.5-Mini/raw/main/config.json`
+
+### Phi-4-mini (Standard GQA)
+
+| Model | Layers | Attn Heads | KV Heads | head_dim | Max Ctx |
+|-------|--------|-----------|----------|----------|---------|
+| Phi-4-mini 3.8B | 32 | 24 | 8 | 128 | 131072 |
+
+Source: `https://huggingface.co/microsoft/Phi-4-mini-instruct/raw/main/config.json`
+
 ---
 
 ## Notes
 
 - **MoE models**: KV cache is independent of MoE — only attention parameters matter.
-- **Jamba (hybrid SSM+Attention)**: Only attention layers produce KV cache. Jamba 1.5 Large has 8 attention layers out of 64 total; Jamba 1.5 Mini has 4 out of 32. This requires a special formula (`num_attention_layers` instead of `num_hidden_layers`).
+- **Jamba (hybrid SSM+Attention)**: Only attention layers produce KV cache. Jamba v0.1 has 4 attention layers out of 32 total (attn_layer_period=8). The `num_hidden_layers` field is set to the attention layer count for correct KV cache calculation using `standard_gqa`.
+- **Llama 2 7B/13B, CodeLlama 7B/13B, Baichuan2**: Use Multi-Head Attention (MHA) where num_key_value_heads = num_attention_heads. The `standard_gqa` formula handles this correctly (GQA is a generalization of MHA).
 - **Llama 4 (iRoPE)**: Uses chunked attention (chunk_size=8192). Local-attention layers only cache chunk_size tokens. `standard_gqa` gives upper-bound estimate.
 - **Gemma 3**: Uses interleaved sliding window (1024) + global attention. `standard_gqa` gives upper-bound estimate.
