@@ -1,6 +1,6 @@
 # KV Cache Calculator - Model Configuration Reference
 
-> This document records all model configurations added to `data/kv_cache_calculator/models.yaml`.
+> This document records all model configurations in `data/kv_cache_calculator/models.yaml`.
 > Parameters are sourced from official HuggingFace config.json files.
 
 ## Formulas
@@ -14,7 +14,76 @@
 
 ---
 
-## Models Already Submitted (PR #7)
+## Pre-existing Models (before PR #7)
+
+### DeepSeek V4 (deepseek_v4_hybrid)
+
+| Model | Layers | head_dim | sliding_window | index_head_dim | index_topk | KV Heads | Max Ctx |
+|-------|--------|----------|---------------|----------------|-----------|----------|---------|
+| DeepSeek V4 Pro | 61 | 512 | 128 | 128 | 1024 | 1 | 1048576 |
+| DeepSeek V4 Flash | 43 | 512 | 128 | 128 | 512 | 1 | 1048576 |
+
+Note: Uses compress_ratios array per-layer. See YAML for full arrays.
+
+Source: `https://huggingface.co/deepseek-ai/DeepSeek-V4-*/raw/main/config.json`
+
+### DeepSeek V3.2 (dsa_mla)
+
+| Model | Layers | kv_lora_rank | qk_nope_head_dim | qk_rope_head_dim | qk_head_dim | v_head_dim | KV Heads | index_head_dim | index_n_heads | index_topk | Max Ctx |
+|-------|--------|-------------|------------------|------------------|------------|-----------|----------|----------------|--------------|-----------|---------|
+| DeepSeek V3.2 | 61 | 512 | 128 | 64 | 192 | 128 | 128 | 128 | 64 | 2048 | 163840 |
+
+Source: `https://huggingface.co/deepseek-ai/DeepSeek-V3.2/raw/main/config.json`
+
+### GLM-5 / 5.1 (dsa_mla)
+
+| Model | Layers | kv_lora_rank | qk_nope_head_dim | qk_rope_head_dim | qk_head_dim | v_head_dim | KV Heads | index_head_dim | index_n_heads | index_topk | Max Ctx |
+|-------|--------|-------------|------------------|------------------|------------|-----------|----------|----------------|--------------|-----------|---------|
+| GLM-5 | 78 | 512 | 192 | 64 | 256 | 256 | 64 | 128 | 32 | 2048 | 202752 |
+| GLM-5.1 | 78 | 512 | 192 | 64 | 256 | 256 | 64 | 128 | 32 | 2048 | 202752 |
+
+Source: `https://huggingface.co/zai-org/GLM-5*/raw/main/config.json`
+
+### Kimi K2.5 / K2.6 (MLA)
+
+| Model | Layers | kv_lora_rank | qk_rope_head_dim | qk_nope_head_dim | v_head_dim | KV Heads | Max Ctx |
+|-------|--------|-------------|------------------|------------------|-----------|----------|---------|
+| Kimi K2.5 | 61 | 512 | 64 | 128 | 128 | 64 | 262144 |
+| Kimi K2.6 | 61 | 512 | 64 | 128 | 128 | 64 | 262144 |
+
+Source: `https://huggingface.co/moonshotai/Kimi-K2.*/raw/main/config.json`
+
+### Qwen3 (Standard GQA)
+
+| Model | Layers | Attn Heads | KV Heads | head_dim | Max Ctx |
+|-------|--------|-----------|----------|----------|---------|
+| Qwen3-235B-A22B | 94 | 64 | 4 | 128 | 40960 |
+| Qwen3-32B | 64 | 64 | 8 | 128 | 40960 |
+| Qwen3-30B-A3B | 48 | 32 | 4 | 128 | 40960 |
+| Qwen3-14B | 40 | 40 | 8 | 128 | 40960 |
+| Qwen3-8B | 36 | 32 | 8 | 128 | 40960 |
+| Qwen3-4B | 36 | 32 | 8 | 128 | 40960 |
+| Qwen3-1.7B | 28 | 16 | 8 | 128 | 40960 |
+| Qwen3-0.6B | 28 | 16 | 8 | 128 | 40960 |
+
+Source: `https://huggingface.co/Qwen/Qwen3-*/raw/main/config.json`
+
+### MiniMax (Standard GQA + MTP)
+
+| Model | Layers | Attn Heads | KV Heads | head_dim | rotary_dim | MTP Modules | Max Ctx |
+|-------|--------|-----------|----------|----------|-----------|------------|---------|
+| MiniMax M2 | 62 | 48 | 8 | 128 | 64 | 3 | 196608 |
+| MiniMax M2.1 | 62 | 48 | 8 | 128 | 64 | 3 | 196608 |
+| MiniMax M2.5 | 62 | 48 | 8 | 128 | 64 | 3 | 196608 |
+| MiniMax M2.7 | 62 | 48 | 8 | 128 | 64 | 3 | 204800 |
+
+Note: MiniMax models use Multi-Token Prediction (MTP) with 3 prediction modules, each with 1 transformer layer.
+
+Source: `https://huggingface.co/MiniMaxAI/MiniMax-M2*/raw/main/config.json`
+
+---
+
+## Models Added in PR #7
 
 ### DeepSeek V3 / R1 (MLA)
 
@@ -93,16 +162,14 @@ Source: `https://huggingface.co/microsoft/phi-4/raw/main/config.json`
 
 Source: `https://huggingface.co/CohereForAI/c4ai-command-r-*/raw/main/config.json`
 
----
-
-## Models Pending Addition (Researched)
-
 ### Llama 4 (Standard GQA, iRoPE chunked attention)
 
 | Model | Layers | Attn Heads | KV Heads | head_dim | Max Ctx | Notes |
 |-------|--------|-----------|----------|----------|---------|-------|
 | Llama 4 Scout 17B-16E | 48 | 40 | 8 | 128 | 10485760 | Chunked attn (chunk=8192), 16 MoE experts |
 | Llama 4 Maverick 17B-128E | 48 | 40 | 8 | 128 | 1048576 | Chunked attn (chunk=8192), 128 MoE experts |
+
+Source: `https://huggingface.co/meta-llama/Llama-4-*/raw/main/config.json`
 
 ### Mixtral (Standard GQA, MoE)
 
@@ -111,12 +178,16 @@ Source: `https://huggingface.co/CohereForAI/c4ai-command-r-*/raw/main/config.jso
 | Mixtral 8x7B | 32 | 32 | 8 | 128 | 32768 | 8 experts, top-2 |
 | Mixtral 8x22B | 56 | 48 | 8 | 128 | 65536 | 8 experts, top-2 |
 
+Source: `https://huggingface.co/mistralai/Mixtral-*/raw/main/config.json`
+
 ### Yi (Standard GQA)
 
 | Model | Layers | Attn Heads | KV Heads | head_dim | Max Ctx |
 |-------|--------|-----------|----------|----------|---------|
 | Yi-1.5-34B | 60 | 56 | 8 | 128 | 4096 |
 | Yi-1.5-9B | 48 | 32 | 4 | 128 | 4096 |
+
+Source: `https://huggingface.co/01-ai/Yi-1.5-*/raw/main/config.json`
 
 ### InternLM (Standard GQA)
 
@@ -125,11 +196,15 @@ Source: `https://huggingface.co/CohereForAI/c4ai-command-r-*/raw/main/config.jso
 | InternLM2.5-20B | 48 | 48 | 8 | 128 | 32768 |
 | InternLM3-8B | 32 | 32 | 8 | 128 | 32768 |
 
+Source: `https://huggingface.co/internlm/internlm*/raw/main/config.json`
+
 ### DBRX (Standard GQA, MoE)
 
 | Model | Layers | Attn Heads | KV Heads | head_dim | Max Ctx | Notes |
 |-------|--------|-----------|----------|----------|---------|-------|
 | DBRX 132B | 40 | 48 | 8 | 128 | 32768 | 16 experts, top-4 |
+
+Source: `https://huggingface.co/databricks/dbrx-instruct/raw/main/config.json`
 
 ### Phi-3 (Standard GQA)
 
@@ -139,12 +214,16 @@ Source: `https://huggingface.co/CohereForAI/c4ai-command-r-*/raw/main/config.jso
 | Phi-3-small 7B | 32 | 32 | 8 | 128 | 131072 |
 | Phi-3-mini 3.8B | 32 | 32 | 32 | 96 | 131072 |
 
-### Qwen2-MoE (Standard GQA)
+Source: `https://huggingface.co/microsoft/Phi-3-*/raw/main/config.json`
+
+### Qwen2 / Qwen2.5-Coder (Standard GQA)
 
 | Model | Layers | Attn Heads | KV Heads | head_dim | Max Ctx |
 |-------|--------|-----------|----------|----------|---------|
 | Qwen2-57B-A14B | 28 | 28 | 4 | 128 | 32768 |
-| Qwen2.5-Coder-32B | 64 | 40 | 8 | 128 | 32768 |
+| Qwen2.5-Coder-32B | 64 | 40 | 8 | 128 | 131072 |
+
+Source: `https://huggingface.co/Qwen/Qwen2*/raw/main/config.json`
 
 ### Falcon (Standard GQA)
 
@@ -153,11 +232,15 @@ Source: `https://huggingface.co/CohereForAI/c4ai-command-r-*/raw/main/config.jso
 | Falcon-180B | 80 | 232 | 8 | 64 | 2048 |
 | Falcon-40B | 60 | 128 | 8 | 64 | 2048 |
 
+Source: `https://huggingface.co/tiiuae/falcon-*/raw/main/config.json`
+
 ### Nemotron (Standard GQA)
 
 | Model | Layers | Attn Heads | KV Heads | head_dim | Max Ctx |
 |-------|--------|-----------|----------|----------|---------|
 | Nemotron-4-340B | 96 | 96 | 8 | 192 | 4096 |
+
+Source: `https://huggingface.co/nvidia/Nemotron-4-340B-Base/raw/main/config.json`
 
 ---
 
